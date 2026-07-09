@@ -3,482 +3,575 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Christopher - Reporte de Repasos | Segundo Trimestre 2026</title>
+<title>Christopher · Progreso Segundo Trimestre 2026</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
-  
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+  * { margin:0; padding:0; box-sizing:border-box; }
   
   body {
-    font-family: 'Inter', -apple-system, sans-serif;
-    background: #f0f2f5;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: 40px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #f5f6f8;
+    color: #1a1d23;
+    padding: 12px;
   }
   
-  .dashboard {
-    width: 1100px;
-    min-height: 750px;
-    background: #ffffff;
-    border-radius: 24px;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.12);
-    padding: 40px 45px;
-    position: relative;
-    overflow: hidden;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto 1fr auto;
-    gap: 0;
-  }
+  .container { max-width: 800px; margin: 0 auto; }
   
-  /* Header - spans full width */
+  /* ===== HEADER ===== */
   .header {
-    grid-column: 1 / -1;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 28px;
-    padding-bottom: 20px;
-    border-bottom: 2px solid #eef0f4;
+    background: linear-gradient(135deg, #1a237e 0%, #2962FF 100%);
+    border-radius: 20px;
+    padding: 28px 24px 24px;
+    margin-bottom: 16px;
+    color: white;
   }
   
-  .header-left h1 {
+  .header h1 {
     font-size: 26px;
     font-weight: 800;
-    color: #1a1d23;
     letter-spacing: -0.5px;
   }
   
-  .header-left h1 span {
-    color: #2962FF;
-  }
-  
-  .header-left .subtitle {
+  .header .sub {
     font-size: 14px;
-    color: #7c8394;
+    opacity: 0.85;
     margin-top: 4px;
     font-weight: 400;
   }
   
-  .header-right {
-    text-align: right;
-  }
-  
-  .header-right .period {
-    font-size: 13px;
-    color: #7c8394;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }
-  
-  .header-right .student {
-    font-size: 18px;
-    font-weight: 700;
-    color: #1a1d23;
-    margin-top: 2px;
-  }
-  
-  .header-right .grade {
-    font-size: 13px;
-    color: #2962FF;
-    font-weight: 600;
-    margin-top: 2px;
-  }
-  
-  /* Left column - Big metrics */
-  .metrics-primary {
-    padding-right: 30px;
-  }
-  
-  .metric-hero {
-    margin-bottom: 24px;
-  }
-  
-  .metric-hero .number {
-    font-size: 56px;
-    font-weight: 800;
-    color: #1a1d23;
-    line-height: 1;
-    letter-spacing: -2px;
-  }
-  
-  .metric-hero .number .accent-blue { color: #2962FF; }
-  .metric-hero .number .accent-green { color: #00C875; }
-  .metric-hero .number .accent-orange { color: #FF6B35; }
-  .metric-hero .number .accent-purple { color: #9C27B0; }
-  
-  .metric-hero .label {
-    font-size: 14px;
-    color: #7c8394;
-    font-weight: 500;
-    margin-top: 2px;
-  }
-  
-  .mini-metrics {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-    margin-top: 16px;
-  }
-  
-  .mini-card {
-    background: #f7f8fa;
-    border-radius: 12px;
-    padding: 14px 16px;
-  }
-  
-  .mini-card .mini-number {
-    font-size: 22px;
-    font-weight: 700;
-    color: #1a1d23;
-  }
-  
-  .mini-card .mini-label {
-    font-size: 11px;
-    color: #7c8394;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-top: 2px;
-  }
-  
-  .mini-card.highlight {
-    background: #2962FF;
-  }
-  .mini-card.highlight .mini-number { color: #fff; }
-  .mini-card.highlight .mini-label { color: rgba(255,255,255,0.7); }
-  
-  /* Activity bar */
-  .activity-bar {
+  .header .meta {
     display: flex;
+    gap: 16px;
+    margin-top: 14px;
+    font-size: 13px;
+    opacity: 0.9;
+    flex-wrap: wrap;
+  }
+  
+  .header .meta span { opacity: 0.6; }
+  
+  /* ===== CARDS ===== */
+  .card {
+    background: white;
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 12px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  }
+  
+  .card-title {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 14px;
+    color: #1a1d23;
+  }
+  
+  /* ===== EMBUDO ===== */
+  .funnel {
+    display: flex;
+    flex-direction: column;
     gap: 8px;
-    margin-top: 20px;
-    padding: 16px 0;
-    border-top: 1px solid #eef0f4;
+    margin-bottom: 4px;
   }
   
-  .activity-item {
-    flex: 1;
-    text-align: center;
-    padding: 10px;
-    background: #f7f8fa;
-    border-radius: 10px;
-  }
-  
-  .activity-item .act-number {
-    font-size: 24px;
-    font-weight: 700;
-    color: #1a1d23;
-  }
-  
-  .activity-item .act-label {
-    font-size: 10px;
-    color: #7c8394;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-top: 2px;
-  }
-  
-  .activity-item.active {
-    background: #e8f0ff;
-  }
-  .activity-item.active .act-number { color: #2962FF; }
-  
-  /* Right column - Bar chart */
-  .chart-section {
-    padding-left: 10px;
-    border-left: 2px solid #eef0f4;
-  }
-  
-  .chart-title {
-    font-size: 14px;
-    font-weight: 700;
-    color: #1a1d23;
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
-    margin-bottom: 16px;
-  }
-  
-  .bar-row {
+  .funnel-row {
     display: flex;
     align-items: center;
-    margin-bottom: 10px;
+    gap: 12px;
   }
   
-  .bar-label {
-    width: 70px;
-    font-size: 11px;
-    font-weight: 600;
+  .funnel-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .funnel-dot.blue { background: #2962FF; }
+  .funnel-dot.yellow { background: #FFB400; }
+  .funnel-dot.green { background: #00C875; }
+  
+  .funnel-label {
+    width: 110px;
+    font-size: 14px;
+    font-weight: 500;
     color: #555b6d;
-    text-align: right;
-    padding-right: 12px;
     flex-shrink: 0;
   }
   
-  .bar-track {
+  .funnel-track {
     flex: 1;
-    height: 22px;
+    height: 24px;
     background: #f0f2f5;
-    border-radius: 11px;
+    border-radius: 12px;
     overflow: hidden;
     position: relative;
   }
   
-  .bar-fill {
+  .funnel-fill {
     height: 100%;
-    border-radius: 11px;
-    transition: width 0.6s ease;
+    border-radius: 12px;
     position: absolute;
-    left: 0;
-    top: 0;
-  }
-  
-  .bar-fill.blue { background: linear-gradient(90deg, #2962FF, #5b8cff); }
-  .bar-fill.green { background: linear-gradient(90deg, #00C875, #33d994); }
-  .bar-fill.orange { background: linear-gradient(90deg, #FF6B35, #ff8f5c); }
-  .bar-fill.purple { background: linear-gradient(90deg, #9C27B0, #c158d6); }
-  .bar-fill.gold { background: linear-gradient(90deg, #FFB400, #ffc733); }
-  
-  .bar-number {
-    width: 36px;
+    left: 0; top: 0;
+    display: flex;
+    align-items: center;
+    padding-left: 12px;
     font-size: 13px;
     font-weight: 700;
-    color: #1a1d23;
-    text-align: right;
-    padding-left: 8px;
-    flex-shrink: 0;
+    color: white;
+    transition: width 0.6s ease;
   }
+  .funnel-fill.blue { background: linear-gradient(90deg, #2962FF, #5b8cff); }
+  .funnel-fill.yellow { background: linear-gradient(90deg, #FFB400, #ffc733); color: #1a1d23; }
+  .funnel-fill.green { background: linear-gradient(90deg, #00C875, #33d994); }
   
-  .bar-sub {
-    font-size: 10px;
+  .funnel-pct {
+    width: 40px;
+    font-size: 13px;
+    font-weight: 600;
     color: #7c8394;
-    font-weight: 400;
-    display: block;
-    margin-top: -1px;
+    text-align: right;
   }
   
-  /* Bottom - News + Message */
-  .footer {
-    grid-column: 1 / -1;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 24px;
-    padding-top: 20px;
-    border-top: 2px solid #eef0f4;
+  /* ===== RESUMEN DEL EMBUDO ===== */
+  .funnel-summary {
+    background: #f8faff;
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin-top: 10px;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #555b6d;
+    border-left: 3px solid #2962FF;
   }
   
-  .news-item {
-    display: flex;
+  .funnel-summary strong { color: #1a1d23; }
+  
+  /* ===== SCORE EXAMEN ===== */
+  .exam-score {
+    text-align: center;
+    padding: 8px 0 4px;
+  }
+  
+  .exam-score .score-circle {
+    display: inline-flex;
     align-items: center;
+    justify-content: center;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 6px;
+  }
+  
+  .exam-score .score-circle.high { background: #e8fcf0; color: #00C875; }
+  .exam-score .score-circle.med { background: #fef9e6; color: #FFB400; }
+  .exam-score .score-circle.low { background: #fef0e6; color: #FF6B35; }
+  
+  .exam-score .score-label {
+    font-size: 13px;
+    color: #7c8394;
+  }
+  
+  .exam-score .score-sub {
+    font-size: 12px;
+    color: #b0b5c0;
+    margin-top: 2px;
+  }
+  
+  /* ===== MATERIAS GRID ===== */
+  .subjects-grid {
+    display: grid;
     gap: 10px;
   }
   
-  .news-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    flex-shrink: 0;
-  }
-  .news-dot.orange { background: #FF6B35; }
-  .news-dot.purple { background: #9C27B0; }
-  .news-dot.green { background: #00C875; }
-  
-  .news-text {
-    font-size: 13px;
-    color: #555b6d;
-    font-weight: 500;
+  .subject-row {
+    background: #f7f8fa;
+    border-radius: 12px;
+    padding: 16px;
   }
   
-  .news-text strong {
-    color: #1a1d23;
+  .subject-row .s-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
   }
   
-  .motivation {
+  .subject-row .s-name {
+    font-size: 15px;
+    font-weight: 700;
+  }
+  
+  .subject-row .s-exam {
     font-size: 20px;
     font-weight: 800;
+  }
+  .subject-row .s-exam.high { color: #00C875; }
+  .subject-row .s-exam.med { color: #FFB400; }
+  .subject-row .s-exam.low { color: #FF6B35; }
+  
+  .subject-row .s-bar {
+    display: flex;
+    height: 8px;
+    border-radius: 4px;
+    overflow: hidden;
+    gap: 2px;
+  }
+  
+  .subject-row .s-bar .seg {
+    border-radius: 4px;
+    transition: width 0.4s ease;
+  }
+  .subject-row .s-bar .seg.blue { background: #2962FF; }
+  .subject-row .s-bar .seg.yellow { background: #FFB400; }
+  .subject-row .s-bar .seg.green { background: #00C875; }
+  
+  .subject-row .s-legend {
+    display: flex;
+    gap: 12px;
+    margin-top: 8px;
+    font-size: 11px;
+    color: #7c8394;
+    flex-wrap: wrap;
+  }
+  
+  .subject-row .s-legend span { display: flex; align-items: center; gap: 4px; }
+  .subject-row .s-legend .dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+  
+  /* ===== RITMO ===== */
+  .rhythm-row {
+    display: flex;
+    gap: 8px;
+  }
+  
+  .rhythm-item {
+    flex: 1;
+    text-align: center;
+    padding: 14px 6px;
+    background: #f7f8fa;
+    border-radius: 10px;
+  }
+  
+  .rhythm-item .r-num {
+    font-size: 26px;
+    font-weight: 700;
     color: #2962FF;
-    letter-spacing: -0.3px;
   }
   
-  .motivation span {
-    color: #FFB400;
+  .rhythm-item .r-label {
+    font-size: 11px;
+    color: #7c8394;
+    font-weight: 500;
+    margin-top: 2px;
   }
   
-  /* Print styles */
-  @media print {
-    body { background: #fff; padding: 0; }
-    .dashboard { box-shadow: none; border-radius: 0; width: 100%; min-height: auto; }
+  .rhythm-item.active { background: #e8f0ff; }
+  
+  /* ===== DESTACADO ===== */
+  .highlight-box {
+    display: flex;
+    gap: 12px;
+    padding: 14px 16px;
+    background: #f0f7ff;
+    border-radius: 12px;
+    border-left: 3px solid #2962FF;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #555b6d;
+    flex-wrap: wrap;
+  }
+  
+  .highlight-box strong { color: #1a1d23; }
+  
+  .highlight-box.green { background: #e8fcf0; border-left-color: #00C875; }
+  .highlight-box.orange { background: #fef5e6; border-left-color: #FF6B35; }
+  
+  .badge {
+    display: inline-block;
+    background: #2962FF;
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 6px;
+  }
+  .badge.green { background: #00C875; }
+  .badge.yellow { background: #FFB400; color: #1a1d23; }
+  
+  /* ===== FOOTER ===== */
+  .footer {
+    text-align: center;
+    padding: 20px 16px;
+  }
+  
+  .footer .msg {
+    font-size: 22px;
+    font-weight: 800;
+    color: #2962FF;
+  }
+  
+  .footer .msg span { color: #FFB400; }
+  
+  .footer .update {
+    font-size: 11px;
+    color: #b0b5c0;
+    margin-top: 8px;
+  }
+
+  @media (max-width: 480px) {
+    .header h1 { font-size: 22px; }
+    .funnel-label { width: 85px; font-size: 13px; }
+    .rhythm-item { padding: 10px 4px; }
+    .rhythm-item .r-num { font-size: 22px; }
   }
 </style>
 </head>
 <body>
 
-<div class="dashboard">
+<div class="container">
 
   <!-- HEADER -->
   <div class="header">
-    <div class="header-left">
-      <h1>Reporte de <span>Repasos</span></h1>
-      <div class="subtitle">Sistema de memoria espaciada · Christopher</div>
-    </div>
-    <div class="header-right">
-      <div class="period">Segundo Trimestre 2026</div>
-      <div class="student">Christopher</div>
-      <div class="grade">Sexto Grado</div>
+    <h1>Progreso de Christopher</h1>
+    <div class="sub">Segundo Trimestre · Sexto Grado · 2026</div>
+    <div class="meta">
+      <div>📚 <span>129 temas registrados</span></div>
+      <div>✏️ <span>271 prácticas hechas</span></div>
     </div>
   </div>
 
-  <!-- LEFT COLUMN: MÉTRICAS PRIMARIAS -->
-  <div class="metrics-primary">
-
-    <!-- Hero numbers: Total Repasos -->
-    <div class="metric-hero">
-      <div class="number"><span class="accent-blue">271</span></div>
-      <div class="label">Repasos acumulados en el trimestre</div>
-    </div>
-
-    <!-- Mini cards: cards, interval, etc -->
-    <div class="mini-metrics">
-      <div class="mini-card">
-        <div class="mini-number">129</div>
-        <div class="mini-label">Tarjetas en estudio</div>
+  <!-- EMBUDO DE APRENDIZAJE -->
+  <div class="card">
+    <div class="card-title">📊 ¿En qué etapa está cada tema?</div>
+    
+    <div class="funnel">
+      <div class="funnel-row">
+        <div class="funnel-dot blue"></div>
+        <div class="funnel-label">Aprendiendo</div>
+        <div class="funnel-track">
+          <div class="funnel-fill blue" style="width:34%;">44</div>
+        </div>
+        <div class="funnel-pct">34%</div>
       </div>
-      <div class="mini-card highlight">
-        <div class="mini-number">28</div>
-        <div class="mini-label">Pendientes hoy</div>
+      <div class="funnel-row">
+        <div class="funnel-dot yellow"></div>
+        <div class="funnel-label">Practicando</div>
+        <div class="funnel-track">
+          <div class="funnel-fill yellow" style="width:17%;">22</div>
+        </div>
+        <div class="funnel-pct">17%</div>
       </div>
-      <div class="mini-card">
-        <div class="mini-number">85</div>
-        <div class="mini-label">Ya en fase de repaso</div>
-      </div>
-      <div class="mini-card">
-        <div class="mini-number">44</div>
-        <div class="mini-label">Nuevas por empezar</div>
-      </div>
-    </div>
-
-    <!-- Activity timeline -->
-    <div class="activity-bar">
-      <div class="activity-item active">
-        <div class="act-number">28</div>
-        <div class="act-label">Hoy</div>
-      </div>
-      <div class="activity-item">
-        <div class="act-number">44</div>
-        <div class="act-label">7 Dias</div>
-      </div>
-      <div class="activity-item">
-        <div class="act-number">85</div>
-        <div class="act-label">30 Dias</div>
-      </div>
-      <div class="activity-item">
-        <div class="act-number">100%</div>
-        <div class="act-label">Sin errores</div>
+      <div class="funnel-row">
+        <div class="funnel-dot green"></div>
+        <div class="funnel-label">Dominado</div>
+        <div class="funnel-track">
+          <div class="funnel-fill green" style="width:49%;">63</div>
+        </div>
+        <div class="funnel-pct">49%</div>
       </div>
     </div>
     
-    <!-- Insights line -->
-    <div style="margin-top:14px; padding:12px 16px; background: #f0f7ff; border-radius:10px; border-left: 3px solid #2962FF;">
-      <div style="font-size:12px; color:#2962FF; font-weight:700; text-transform:uppercase; letter-spacing:0.5px;">+44 tarjetas nuevas</div>
-      <div style="font-size:13px; color:#555b6d; margin-top:3px;">Agregadas en julio 2026 — Aritmetica y Finanzas, Ciudadania y Valores, Comunicacion</div>
+    <div class="funnel-summary">
+      <strong>Casi la mitad de los temas ya están dominados</strong> (63 de 129). 
+      Christopher los responde bien y se acuerda sin necesidad de repasarlos seguido. 
+      El 34% está en etapa de aprendizaje — son temas nuevos que se fueron agregando durante julio.
     </div>
   </div>
 
-  <!-- RIGHT COLUMN: GRÁFICO POR MATERIA (por reps) -->
-  <div class="chart-section">
-    <div class="chart-title">Repasos por materia</div>
+  <!-- SCORE DE EXAMEN GENERAL -->
+  <div class="card">
+    <div class="card-title">🎯 ¿Qué tan preparado está para un examen?</div>
+    <div style="display:flex; gap:20px; align-items:center; flex-wrap:wrap;">
+      <div class="exam-score">
+        <div class="score-circle med">66%</div>
+        <div class="score-label">Preparación general</div>
+        <div class="score-sub">lo sabría bien si lo evaluaran hoy</div>
+      </div>
+      <div style="flex:1; min-width:140px; font-size:13px; color:#555b6d; line-height:1.5;">
+        Cada materia tiene su propio nivel. 
+        <strong>Ciencia</strong> está casi lista (91%), 
+        mientras que <strong>Aritmética</strong> 
+        está arrancando (32%) porque justo se agregaron temas nuevos.
+        <div style="margin-top:8px;">
+          <span class="badge green">91%</span> Ciencia · 
+          <span class="badge yellow">60%</span> Ciudadanía · 
+          <span class="badge yellow">47%</span> Comunicación · 
+          <span class="badge green">100%</span> Inglés · 
+          <span class="badge" style="background:#FF6B35;">32%</span> Aritmética
+        </div>
+      </div>
+    </div>
+  </div>
 
-    <div class="bar-row">
-      <div class="bar-label">Ciencia y Tec.</div>
-      <div class="bar-track">
-        <div class="bar-fill blue" style="width: 100%;"></div>
-      </div>
-      <div class="bar-number">136</div>
-    </div>
-    <div class="bar-row">
-      <div class="bar-label">Ciudadania y Val.</div>
-      <div class="bar-track">
-        <div class="bar-fill green" style="width: 47%;"></div>
-      </div>
-      <div class="bar-number">64</div>
-    </div>
-    <div class="bar-row">
-      <div class="bar-label">Aritmetica y Fin.</div>
-      <div class="bar-track">
-        <div class="bar-fill orange" style="width: 21%;"></div>
-      </div>
-      <div class="bar-number">29</div>
-    </div>
-    <div class="bar-row">
-      <div class="bar-label">Comunicacion y Lit.</div>
-      <div class="bar-track">
-        <div class="bar-fill purple" style="width: 18%;"></div>
-      </div>
-      <div class="bar-number">24</div>
-    </div>
-    <div class="bar-row">
-      <div class="bar-label">Ingles</div>
-      <div class="bar-track">
-        <div class="bar-fill gold" style="width: 13%;"></div>
-      </div>
-      <div class="bar-number">18</div>
-    </div>
+  <!-- DESGLOSE POR MATERIA -->
+  <div class="card">
+    <div class="card-title">📚 Materias una por una</div>
+    <div class="subjects-grid">
 
-    <div style="margin-top:18px;">
-      <div class="chart-title" style="margin-bottom:10px;">Tarjetas en fase de repaso</div>
-      <div style="display:flex; gap:8px; flex-wrap:wrap;">
-        <div style="background:#e8f0ff; padding:8px 14px; border-radius:8px; font-size:12px; font-weight:600; color:#2962FF; display:flex; align-items:center; gap:6px;">
-          <span style="width:10px;height:10px;border-radius:50%;background:#2962FF;display:inline-block;"></span>
-          Ciencia y Tec. 42
+      <!-- CIENCIA -->
+      <div class="subject-row">
+        <div class="s-head">
+          <div class="s-name">🔬 Ciencia y Tecnología</div>
+          <div class="s-exam high">91%</div>
         </div>
-        <div style="background:#e6fcf0; padding:8px 14px; border-radius:8px; font-size:12px; font-weight:600; color:#00A85A; display:flex; align-items:center; gap:6px;">
-          <span style="width:10px;height:10px;border-radius:50%;background:#00C875;display:inline-block;"></span>
-          Ciudadania 21
+        <div class="s-bar">
+          <div class="seg blue" style="width:9%;"></div>
+          <div class="seg yellow" style="width:30%;"></div>
+          <div class="seg green" style="width:61%;"></div>
         </div>
-        <div style="background:#fef0e6; padding:8px 14px; border-radius:8px; font-size:12px; font-weight:600; color:#d45a20; display:flex; align-items:center; gap:6px;">
-          <span style="width:10px;height:10px;border-radius:50%;background:#FF6B35;display:inline-block;"></span>
-          Aritmetica 8
+        <div class="s-legend">
+          <span><span class="dot" style="background:#2962FF;"></span>4 aprendiendo</span>
+          <span><span class="dot" style="background:#FFB400;"></span>14 practicando</span>
+          <span><span class="dot" style="background:#00C875;"></span>28 dominados</span>
+          <span style="color:#555b6d;"><strong>136</strong> prácticas</span>
         </div>
-        <div style="background:#f3e6f5; padding:8px 14px; border-radius:8px; font-size:12px; font-weight:600; color:#7b1fa2; display:flex; align-items:center; gap:6px;">
-          <span style="width:10px;height:10px;border-radius:50%;background:#9C27B0;display:inline-block;"></span>
-          Comunicacion 8
-        </div>
-        <div style="background:#fef9e6; padding:8px 14px; border-radius:8px; font-size:12px; font-weight:600; color:#b38000; display:flex; align-items:center; gap:6px;">
-          <span style="width:10px;height:10px;border-radius:50%;background:#FFB400;display:inline-block;"></span>
-          Ingles 6
+        <div class="highlight-box" style="margin-top:8px;">
+          🟢 <strong>La materia más avanzada.</strong> 42 de 46 temas ya están en práctica o dominados. Si mañana tuviera examen de Ciencia, le iría muy bien.
         </div>
       </div>
+
+      <!-- CIUDADANÍA -->
+      <div class="subject-row">
+        <div class="s-head">
+          <div class="s-name">🤝 Ciudadanía y Valores</div>
+          <div class="s-exam med">60%</div>
+        </div>
+        <div class="s-bar">
+          <div class="seg blue" style="width:40%;"></div>
+          <div class="seg yellow" style="width:14%;"></div>
+          <div class="seg green" style="width:46%;"></div>
+        </div>
+        <div class="s-legend">
+          <span><span class="dot" style="background:#2962FF;"></span>14 aprendiendo</span>
+          <span><span class="dot" style="background:#FFB400;"></span>5 practicando</span>
+          <span><span class="dot" style="background:#00C875;"></span>16 dominados</span>
+          <span style="color:#555b6d;"><strong>64</strong> prácticas</span>
+        </div>
+        <div class="highlight-box" style="margin-top:8px;">
+          🟡 <strong>Bien encaminada.</strong> Casi la mitad dominada. Los 14 temas nuevos se están afianzando.
+        </div>
+      </div>
+
+      <!-- ARITMÉTICA -->
+      <div class="subject-row">
+        <div class="s-head">
+          <div class="s-name">💰 Aritmética y Finanzas</div>
+          <div class="s-exam low">32%</div>
+        </div>
+        <div class="s-bar">
+          <div class="seg blue" style="width:68%;"></div>
+          <div class="seg yellow" style="width:4%;"></div>
+          <div class="seg green" style="width:28%;"></div>
+        </div>
+        <div class="s-legend">
+          <span><span class="dot" style="background:#2962FF;"></span>17 aprendiendo</span>
+          <span><span class="dot" style="background:#FFB400;"></span>1 practicando</span>
+          <span><span class="dot" style="background:#00C875;"></span>7 dominados</span>
+          <span style="color:#555b6d;"><strong>29</strong> prácticas</span>
+        </div>
+        <div class="highlight-box orange" style="margin-top:8px;">
+          🟠 <strong>Recién arrancando.</strong> La mayoría son temas nuevos agregados hace pocos días. Con las próximas semanas de práctica va a subir rápido.
+        </div>
+      </div>
+
+      <!-- COMUNICACIÓN -->
+      <div class="subject-row">
+        <div class="s-head">
+          <div class="s-name">📖 Comunicación y Literatura</div>
+          <div class="s-exam med">47%</div>
+        </div>
+        <div class="s-bar">
+          <div class="seg blue" style="width:53%;"></div>
+          <div class="seg yellow" style="width:6%;"></div>
+          <div class="seg green" style="width:41%;"></div>
+        </div>
+        <div class="s-legend">
+          <span><span class="dot" style="background:#2962FF;"></span>9 aprendiendo</span>
+          <span><span class="dot" style="background:#FFB400;"></span>1 practicando</span>
+          <span><span class="dot" style="background:#00C875;"></span>7 dominados</span>
+          <span style="color:#555b6d;"><strong>24</strong> prácticas</span>
+        </div>
+        <div class="highlight-box" style="margin-top:8px;">
+          🟡 <strong>Mitad y mitad.</strong> 7 temas ya están dominados. Los 9 nuevos se están incorporando.
+        </div>
+      </div>
+
+      <!-- INGLÉS -->
+      <div class="subject-row">
+        <div class="s-head">
+          <div class="s-name">🇬🇧 Inglés</div>
+          <div class="s-exam high">100%</div>
+        </div>
+        <div class="s-bar">
+          <div class="seg blue" style="width:0%;"></div>
+          <div class="seg yellow" style="width:17%;"></div>
+          <div class="seg green" style="width:83%;"></div>
+        </div>
+        <div class="s-legend">
+          <span><span class="dot" style="background:#2962FF;"></span>0 aprendiendo</span>
+          <span><span class="dot" style="background:#FFB400;"></span>1 practicando</span>
+          <span><span class="dot" style="background:#00C875;"></span>5 dominados</span>
+          <span style="color:#555b6d;"><strong>18</strong> prácticas</span>
+        </div>
+        <div class="highlight-box green" style="margin-top:8px;">
+          🟢 <strong>Completa.</strong> Todos los temas de inglés están dominados o en práctica. Christopher lo tiene clarísimo.
+        </div>
+      </div>
+
     </div>
-    
-    <!-- Intervalo máximo -->
-    <div style="margin-top:18px; padding:14px 16px; background:linear-gradient(135deg, #f7f8fa, #f0f2f5); border-radius:12px;">
-      <div style="font-size:11px; text-transform:uppercase; letter-spacing:0.5px; font-weight:600; color:#7c8394;">Mayor intervalo alcanzado</div>
-      <div style="font-size:24px; font-weight:700; color:#1a1d23; margin-top:2px;">15 <span style="font-size:14px; font-weight:400; color:#7c8394;">dias</span></div>
-      <div style="font-size:12px; color:#555b6d; margin-top:2px;">Circuitos eléctricos en serie · Ciencia y Tecnología</div>
+  </div>
+
+  <!-- RITMO DE PRÁCTICA -->
+  <div class="card">
+    <div class="card-title">⏱️ ¿Con qué frecuencia practica?</div>
+    <div class="rhythm-row">
+      <div class="rhythm-item">
+        <div class="r-num">0</div>
+        <div class="r-label">Hoy</div>
+      </div>
+      <div class="rhythm-item active">
+        <div class="r-num">44</div>
+        <div class="r-label">Última semana</div>
+      </div>
+      <div class="rhythm-item active">
+        <div class="r-num">85</div>
+        <div class="r-label">Últimas 2 sem.</div>
+      </div>
+      <div class="rhythm-item active">
+        <div class="r-num">85</div>
+        <div class="r-label">Último mes</div>
+      </div>
+    </div>
+    <div class="funnel-summary" style="margin-top:10px;">
+      <strong>44 prácticas en la última semana.</strong> Todo el trabajo se concentró en los últimos 14 días.
+      Christopher se sienta, practica, y decide cuándo hacerlo. No hay errores registrados: 
+      cuando responde, lo hace bien.
+    </div>
+  </div>
+
+  <!-- NOVEDADES -->
+  <div class="card">
+    <div class="card-title">📦 Novedades de julio</div>
+    <div style="display:flex; gap:10px; flex-wrap:wrap;">
+      <div style="flex:1; min-width:140px; background:#f7f8fa; border-radius:12px; padding:14px;">
+        <div style="font-size:24px; font-weight:700; color:#2962FF;">+44</div>
+        <div style="font-size:13px; color:#555b6d;">temas nuevos agregados este mes</div>
+      </div>
+      <div style="flex:1; min-width:140px; background:#f7f8fa; border-radius:12px; padding:14px;">
+        <div style="font-size:24px; font-weight:700; color:#00C875;">100%</div>
+        <div style="font-size:13px; color:#555b6d;">de aciertos en los temas que ya domina</div>
+      </div>
+      <div style="flex:1; min-width:140px; background:#f7f8fa; border-radius:12px; padding:14px;">
+        <div style="font-size:24px; font-weight:700; color:#9C27B0;">15 días</div>
+        <div style="font-size:13px; color:#555b6d;">es el récord sin repasar un tema</div>
+      </div>
     </div>
   </div>
 
   <!-- FOOTER -->
   <div class="footer">
-    <div style="display:flex; gap:20px; flex-wrap:wrap;">
-      <div class="news-item">
-        <div class="news-dot green"></div>
-        <div class="news-text"><strong>100% aciertos</strong> — Ninguna tarjeta ha sido olvidada tras pasar a repaso</div>
-      </div>
-      <div class="news-item">
-        <div class="news-dot orange"></div>
-        <div class="news-text"><strong>44 tarjetas nuevas</strong> en julio 2026</div>
-      </div>
-    </div>
-    <div class="motivation">
-      Seguro asi, <span>Campeon</span>
-    </div>
+    <div class="msg">Seguro así, <span>Campeón</span></div>
+    <div class="update">Actualizado el 8 de julio de 2026</div>
   </div>
 
 </div>
