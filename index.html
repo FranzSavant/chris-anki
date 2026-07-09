@@ -267,6 +267,78 @@
   
   .rhythm-item.active { background: #e8f0ff; }
   
+  /* ===== CALENDARIO DIARIO ===== */
+  .cal-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 6px;
+    margin-bottom: 10px;
+  }
+  
+  .cal-day {
+    text-align: center;
+    padding: 10px 2px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 500;
+    transition: all 0.2s;
+  }
+  
+  .cal-day .cal-dow {
+    font-size: 10px;
+    font-weight: 600;
+    color: #b0b5c0;
+    text-transform: uppercase;
+    margin-bottom: 2px;
+  }
+  
+  .cal-day .cal-num {
+    font-size: 16px;
+    font-weight: 700;
+    margin: 2px 0;
+  }
+  
+  .cal-day .cal-count {
+    font-size: 9px;
+    margin-top: 2px;
+  }
+  
+  .cal-day.study {
+    background: #e8fcf0;
+    color: #00C875;
+  }
+  .cal-day.study .cal-num { color: #00C875; }
+  .cal-day.study .cal-count { color: #33d994; font-weight: 600; }
+  
+  .cal-day.miss {
+    background: #fef2f2;
+    color: #e0b0b0;
+  }
+  .cal-day.miss .cal-num { color: #d45a5a; }
+  .cal-day.miss .cal-count { color: #e0b0b0; }
+  
+  .cal-day.today {
+    border: 2px solid #2962FF;
+    background: #f0f7ff;
+  }
+  
+  .cal-day.today.miss {
+    border-color: #d45a5a;
+    background: #fef2f2;
+  }
+  
+  .cal-legend {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    font-size: 11px;
+    color: #7c8394;
+    margin-bottom: 8px;
+  }
+  
+  .cal-legend span { display: flex; align-items: center; gap: 4px; }
+  .cal-legend .dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+  
   /* ===== DESTACADO ===== */
   .highlight-box {
     display: flex;
@@ -521,31 +593,52 @@
     </div>
   </div>
 
-  <!-- RITMO DE PRÁCTICA -->
+  <!-- FRECUENCIA DIARIA -->
   <div class="card">
-    <div class="card-title">⏱️ ¿Con qué frecuencia practica?</div>
-    <div class="rhythm-row">
+    <div class="card-title">📅 ¿Está estudiando todos los días?</div>
+    
+    <div class="cal-legend">
+      <span><span class="dot" style="background:#00C875;"></span> Estudió</span>
+      <span><span class="dot" style="background:#f0f2f5;"></span> Sin estudio</span>
+      <span><span class="dot" style="background:#2962FF;"></span> Hoy</span>
+    </div>
+    
+    <div class="cal-grid">
+      <div class="cal-day miss"><div class="cal-dow">J</div><div class="cal-num">25</div><div class="cal-count">0</div></div>
+      <div class="cal-day miss"><div class="cal-dow">V</div><div class="cal-num">26</div><div class="cal-count">0</div></div>
+      <div class="cal-day miss"><div class="cal-dow">S</div><div class="cal-num">27</div><div class="cal-count">0</div></div>
+      <div class="cal-day miss"><div class="cal-dow">D</div><div class="cal-num">28</div><div class="cal-count">0</div></div>
+      <div class="cal-day miss"><div class="cal-dow">L</div><div class="cal-num">29</div><div class="cal-count">0</div></div>
+      <div class="cal-day study"><div class="cal-dow">M</div><div class="cal-num">30</div><div class="cal-count">41</div></div>
+      <div class="cal-day miss"><div class="cal-dow">M</div><div class="cal-num">01</div><div class="cal-count">0</div></div>
+      <div class="cal-day miss"><div class="cal-dow">J</div><div class="cal-num">02</div><div class="cal-count">0</div></div>
+      <div class="cal-day miss"><div class="cal-dow">V</div><div class="cal-num">03</div><div class="cal-count">0</div></div>
+      <div class="cal-day miss"><div class="cal-dow">S</div><div class="cal-num">04</div><div class="cal-count">0</div></div>
+      <div class="cal-day miss"><div class="cal-dow">D</div><div class="cal-num">05</div><div class="cal-count">0</div></div>
+      <div class="cal-day study"><div class="cal-dow">L</div><div class="cal-num">06</div><div class="cal-count">44</div></div>
+      <div class="cal-day miss"><div class="cal-dow">M</div><div class="cal-num">07</div><div class="cal-count">0</div></div>
+      <div class="cal-day today miss"><div class="cal-dow">M</div><div class="cal-num">08</div><div class="cal-count">0</div></div>
+    </div>
+    
+    <div class="rhythm-row" style="margin-top:12px;">
       <div class="rhythm-item">
-        <div class="r-num">0</div>
-        <div class="r-label">Hoy</div>
+        <div class="r-num" style="color:#d45a5a;">2 de 14</div>
+        <div class="r-label">Días que estudió</div>
       </div>
-      <div class="rhythm-item active">
-        <div class="r-num">44</div>
-        <div class="r-label">Última semana</div>
+      <div class="rhythm-item">
+        <div class="r-num" style="color:#00C875;">14%</div>
+        <div class="r-label">Consistencia</div>
       </div>
-      <div class="rhythm-item active">
-        <div class="r-num">85</div>
-        <div class="r-label">Últimas 2 sem.</div>
-      </div>
-      <div class="rhythm-item active">
-        <div class="r-num">85</div>
-        <div class="r-label">Último mes</div>
+      <div class="rhythm-item">
+        <div class="r-num" style="color:#2962FF;">42</div>
+        <div class="r-label">Promedio x sesión</div>
       </div>
     </div>
+    
     <div class="funnel-summary" style="margin-top:10px;">
-      <strong>44 prácticas en la última semana.</strong> Todo el trabajo se concentró en los últimos 14 días.
-      Christopher se sienta, practica, y decide cuándo hacerlo. No hay errores registrados: 
-      cuando responde, lo hace bien.
+      <strong>⚠️ Solo estudió 2 de los últimos 14 días.</strong> La instrucción es repasar todos los días,
+      pero Christopher está haciendo <strong>sesiones intensivas</strong> cada varios días (41-44 temas por vez).
+      Cuando se sienta, rinde bien. El desafío es la constancia.
     </div>
   </div>
 
