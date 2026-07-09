@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Christopher - Reporte de Repasos | Segundo Trimestre 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+  
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 40px;
+  }
+  
+  .dashboard {
+    width: 1100px;
+    min-height: 750px;
+    background: #ffffff;
+    border-radius: 24px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+    padding: 40px 45px;
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 1fr auto;
+    gap: 0;
+  }
+  
+  /* Header - spans full width */
+  .header {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 28px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #eef0f4;
+  }
+  
+  .header-left h1 {
+    font-size: 26px;
+    font-weight: 800;
+    color: #1a1d23;
+    letter-spacing: -0.5px;
+  }
+  
+  .header-left h1 span {
+    color: #2962FF;
+  }
+  
+  .header-left .subtitle {
+    font-size: 14px;
+    color: #7c8394;
+    margin-top: 4px;
+    font-weight: 400;
+  }
+  
+  .header-right {
+    text-align: right;
+  }
+  
+  .header-right .period {
+    font-size: 13px;
+    color: #7c8394;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .header-right .student {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a1d23;
+    margin-top: 2px;
+  }
+  
+  .header-right .grade {
+    font-size: 13px;
+    color: #2962FF;
+    font-weight: 600;
+    margin-top: 2px;
+  }
+  
+  /* Left column - Big metrics */
+  .metrics-primary {
+    padding-right: 30px;
+  }
+  
+  .metric-hero {
+    margin-bottom: 24px;
+  }
+  
+  .metric-hero .number {
+    font-size: 56px;
+    font-weight: 800;
+    color: #1a1d23;
+    line-height: 1;
+    letter-spacing: -2px;
+  }
+  
+  .metric-hero .number .accent-blue { color: #2962FF; }
+  .metric-hero .number .accent-green { color: #00C875; }
+  .metric-hero .number .accent-orange { color: #FF6B35; }
+  .metric-hero .number .accent-purple { color: #9C27B0; }
+  
+  .metric-hero .label {
+    font-size: 14px;
+    color: #7c8394;
+    font-weight: 500;
+    margin-top: 2px;
+  }
+  
+  .mini-metrics {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 16px;
+  }
+  
+  .mini-card {
+    background: #f7f8fa;
+    border-radius: 12px;
+    padding: 14px 16px;
+  }
+  
+  .mini-card .mini-number {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1a1d23;
+  }
+  
+  .mini-card .mini-label {
+    font-size: 11px;
+    color: #7c8394;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 2px;
+  }
+  
+  .mini-card.highlight {
+    background: #2962FF;
+  }
+  .mini-card.highlight .mini-number { color: #fff; }
+  .mini-card.highlight .mini-label { color: rgba(255,255,255,0.7); }
+  
+  /* Activity bar */
+  .activity-bar {
+    display: flex;
+    gap: 8px;
+    margin-top: 20px;
+    padding: 16px 0;
+    border-top: 1px solid #eef0f4;
+  }
+  
+  .activity-item {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    background: #f7f8fa;
+    border-radius: 10px;
+  }
+  
+  .activity-item .act-number {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1a1d23;
+  }
+  
+  .activity-item .act-label {
+    font-size: 10px;
+    color: #7c8394;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 2px;
+  }
+  
+  .activity-item.active {
+    background: #e8f0ff;
+  }
+  .activity-item.active .act-number { color: #2962FF; }
+  
+  /* Right column - Bar chart */
+  .chart-section {
+    padding-left: 10px;
+    border-left: 2px solid #eef0f4;
+  }
+  
+  .chart-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1a1d23;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 16px;
+  }
+  
+  .bar-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .bar-label {
+    width: 70px;
+    font-size: 11px;
+    font-weight: 600;
+    color: #555b6d;
+    text-align: right;
+    padding-right: 12px;
+    flex-shrink: 0;
+  }
+  
+  .bar-track {
+    flex: 1;
+    height: 22px;
+    background: #f0f2f5;
+    border-radius: 11px;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .bar-fill {
+    height: 100%;
+    border-radius: 11px;
+    transition: width 0.6s ease;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  
+  .bar-fill.blue { background: linear-gradient(90deg, #2962FF, #5b8cff); }
+  .bar-fill.green { background: linear-gradient(90deg, #00C875, #33d994); }
+  .bar-fill.orange { background: linear-gradient(90deg, #FF6B35, #ff8f5c); }
+  .bar-fill.purple { background: linear-gradient(90deg, #9C27B0, #c158d6); }
+  .bar-fill.gold { background: linear-gradient(90deg, #FFB400, #ffc733); }
+  
+  .bar-number {
+    width: 36px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #1a1d23;
+    text-align: right;
+    padding-left: 8px;
+    flex-shrink: 0;
+  }
+  
+  .bar-sub {
+    font-size: 10px;
+    color: #7c8394;
+    font-weight: 400;
+    display: block;
+    margin-top: -1px;
+  }
+  
+  /* Bottom - News + Message */
+  .footer {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 2px solid #eef0f4;
+  }
+  
+  .news-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .news-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .news-dot.orange { background: #FF6B35; }
+  .news-dot.purple { background: #9C27B0; }
+  .news-dot.green { background: #00C875; }
+  
+  .news-text {
+    font-size: 13px;
+    color: #555b6d;
+    font-weight: 500;
+  }
+  
+  .news-text strong {
+    color: #1a1d23;
+  }
+  
+  .motivation {
+    font-size: 20px;
+    font-weight: 800;
+    color: #2962FF;
+    letter-spacing: -0.3px;
+  }
+  
+  .motivation span {
+    color: #FFB400;
+  }
+  
+  /* Print styles */
+  @media print {
+    body { background: #fff; padding: 0; }
+    .dashboard { box-shadow: none; border-radius: 0; width: 100%; min-height: auto; }
+  }
+</style>
+</head>
+<body>
+
+<div class="dashboard">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-left">
+      <h1>Reporte de <span>Repasos</span></h1>
+      <div class="subtitle">Sistema de memoria espaciada · Christopher</div>
+    </div>
+    <div class="header-right">
+      <div class="period">Segundo Trimestre 2026</div>
+      <div class="student">Christopher</div>
+      <div class="grade">Sexto Grado</div>
+    </div>
+  </div>
+
+  <!-- LEFT COLUMN: MÉTRICAS PRIMARIAS -->
+  <div class="metrics-primary">
+
+    <!-- Hero numbers: Total Repasos -->
+    <div class="metric-hero">
+      <div class="number"><span class="accent-blue">271</span></div>
+      <div class="label">Repasos acumulados en el trimestre</div>
+    </div>
+
+    <!-- Mini cards: cards, interval, etc -->
+    <div class="mini-metrics">
+      <div class="mini-card">
+        <div class="mini-number">129</div>
+        <div class="mini-label">Tarjetas en estudio</div>
+      </div>
+      <div class="mini-card highlight">
+        <div class="mini-number">28</div>
+        <div class="mini-label">Pendientes hoy</div>
+      </div>
+      <div class="mini-card">
+        <div class="mini-number">85</div>
+        <div class="mini-label">Ya en fase de repaso</div>
+      </div>
+      <div class="mini-card">
+        <div class="mini-number">44</div>
+        <div class="mini-label">Nuevas por empezar</div>
+      </div>
+    </div>
+
+    <!-- Activity timeline -->
+    <div class="activity-bar">
+      <div class="activity-item active">
+        <div class="act-number">28</div>
+        <div class="act-label">Hoy</div>
+      </div>
+      <div class="activity-item">
+        <div class="act-number">44</div>
+        <div class="act-label">7 Dias</div>
+      </div>
+      <div class="activity-item">
+        <div class="act-number">85</div>
+        <div class="act-label">30 Dias</div>
+      </div>
+      <div class="activity-item">
+        <div class="act-number">100%</div>
+        <div class="act-label">Sin errores</div>
+      </div>
+    </div>
+    
+    <!-- Insights line -->
+    <div style="margin-top:14px; padding:12px 16px; background: #f0f7ff; border-radius:10px; border-left: 3px solid #2962FF;">
+      <div style="font-size:12px; color:#2962FF; font-weight:700; text-transform:uppercase; letter-spacing:0.5px;">+44 tarjetas nuevas</div>
+      <div style="font-size:13px; color:#555b6d; margin-top:3px;">Agregadas en julio 2026 — Aritmetica y Finanzas, Ciudadania y Valores, Comunicacion</div>
+    </div>
+  </div>
+
+  <!-- RIGHT COLUMN: GRÁFICO POR MATERIA (por reps) -->
+  <div class="chart-section">
+    <div class="chart-title">Repasos por materia</div>
+
+    <div class="bar-row">
+      <div class="bar-label">Ciencia y Tec.</div>
+      <div class="bar-track">
+        <div class="bar-fill blue" style="width: 100%;"></div>
+      </div>
+      <div class="bar-number">136</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">Ciudadania y Val.</div>
+      <div class="bar-track">
+        <div class="bar-fill green" style="width: 47%;"></div>
+      </div>
+      <div class="bar-number">64</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">Aritmetica y Fin.</div>
+      <div class="bar-track">
+        <div class="bar-fill orange" style="width: 21%;"></div>
+      </div>
+      <div class="bar-number">29</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">Comunicacion y Lit.</div>
+      <div class="bar-track">
+        <div class="bar-fill purple" style="width: 18%;"></div>
+      </div>
+      <div class="bar-number">24</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">Ingles</div>
+      <div class="bar-track">
+        <div class="bar-fill gold" style="width: 13%;"></div>
+      </div>
+      <div class="bar-number">18</div>
+    </div>
+
+    <div style="margin-top:18px;">
+      <div class="chart-title" style="margin-bottom:10px;">Tarjetas en fase de repaso</div>
+      <div style="display:flex; gap:8px; flex-wrap:wrap;">
+        <div style="background:#e8f0ff; padding:8px 14px; border-radius:8px; font-size:12px; font-weight:600; color:#2962FF; display:flex; align-items:center; gap:6px;">
+          <span style="width:10px;height:10px;border-radius:50%;background:#2962FF;display:inline-block;"></span>
+          Ciencia y Tec. 42
+        </div>
+        <div style="background:#e6fcf0; padding:8px 14px; border-radius:8px; font-size:12px; font-weight:600; color:#00A85A; display:flex; align-items:center; gap:6px;">
+          <span style="width:10px;height:10px;border-radius:50%;background:#00C875;display:inline-block;"></span>
+          Ciudadania 21
+        </div>
+        <div style="background:#fef0e6; padding:8px 14px; border-radius:8px; font-size:12px; font-weight:600; color:#d45a20; display:flex; align-items:center; gap:6px;">
+          <span style="width:10px;height:10px;border-radius:50%;background:#FF6B35;display:inline-block;"></span>
+          Aritmetica 8
+        </div>
+        <div style="background:#f3e6f5; padding:8px 14px; border-radius:8px; font-size:12px; font-weight:600; color:#7b1fa2; display:flex; align-items:center; gap:6px;">
+          <span style="width:10px;height:10px;border-radius:50%;background:#9C27B0;display:inline-block;"></span>
+          Comunicacion 8
+        </div>
+        <div style="background:#fef9e6; padding:8px 14px; border-radius:8px; font-size:12px; font-weight:600; color:#b38000; display:flex; align-items:center; gap:6px;">
+          <span style="width:10px;height:10px;border-radius:50%;background:#FFB400;display:inline-block;"></span>
+          Ingles 6
+        </div>
+      </div>
+    </div>
+    
+    <!-- Intervalo máximo -->
+    <div style="margin-top:18px; padding:14px 16px; background:linear-gradient(135deg, #f7f8fa, #f0f2f5); border-radius:12px;">
+      <div style="font-size:11px; text-transform:uppercase; letter-spacing:0.5px; font-weight:600; color:#7c8394;">Mayor intervalo alcanzado</div>
+      <div style="font-size:24px; font-weight:700; color:#1a1d23; margin-top:2px;">15 <span style="font-size:14px; font-weight:400; color:#7c8394;">dias</span></div>
+      <div style="font-size:12px; color:#555b6d; margin-top:2px;">Circuitos eléctricos en serie · Ciencia y Tecnología</div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div style="display:flex; gap:20px; flex-wrap:wrap;">
+      <div class="news-item">
+        <div class="news-dot green"></div>
+        <div class="news-text"><strong>100% aciertos</strong> — Ninguna tarjeta ha sido olvidada tras pasar a repaso</div>
+      </div>
+      <div class="news-item">
+        <div class="news-dot orange"></div>
+        <div class="news-text"><strong>44 tarjetas nuevas</strong> en julio 2026</div>
+      </div>
+    </div>
+    <div class="motivation">
+      Seguro asi, <span>Campeon</span>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
