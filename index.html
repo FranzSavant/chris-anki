@@ -178,6 +178,45 @@
     margin-top: 2px;
   }
   
+  /* ===== FLUIDEZ ===== */
+  .fluency-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  
+  .fl-label {
+    width: 130px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #555b6d;
+    flex-shrink: 0;
+  }
+  
+  .fl-track {
+    flex: 1;
+    height: 10px;
+    background: #f0f2f5;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  
+  .fl-fill {
+    height: 100%;
+    border-radius: 5px;
+    transition: width 0.6s ease;
+    min-width: 4px;
+  }
+  
+  .fl-time {
+    width: 55px;
+    font-size: 12px;
+    font-weight: 700;
+    text-align: right;
+    flex-shrink: 0;
+  }
+  
   /* ===== MATERIAS GRID ===== */
   .subjects-grid {
     display: grid;
@@ -242,10 +281,12 @@
   .rhythm-row {
     display: flex;
     gap: 8px;
+    flex-wrap: wrap;
   }
   
   .rhythm-item {
     flex: 1;
+    min-width: 100px;
     text-align: center;
     padding: 14px 6px;
     background: #f7f8fa;
@@ -264,8 +305,6 @@
     font-weight: 500;
     margin-top: 2px;
   }
-  
-  .rhythm-item.active { background: #e8f0ff; }
   
   /* ===== DESTACADO ===== */
   .highlight-box {
@@ -294,6 +333,7 @@
     font-weight: 700;
     padding: 3px 8px;
     border-radius: 6px;
+    margin: 1px;
   }
   .badge.green { background: #00C875; }
   .badge.yellow { background: #FFB400; color: #1a1d23; }
@@ -335,275 +375,253 @@
     <h1>Progreso de Christopher</h1>
     <div class="sub">Segundo Trimestre · Sexto Grado · 2026</div>
     <div class="meta">
-      <div>📚 <span>129 temas registrados</span></div>
-      <div>✏️ <span>299 prácticas hechas</span></div>
+      <div>&#x1f4da; <span>143 tarjetas en Anki</span></div>
+      <div>&#x270f️; <span>486 repasos acumulados</span></div>
+      <div>&#x1f552; <span>129 para hoy</span></div>
     </div>
   </div>
 
   <!-- EMBUDO DE APRENDIZAJE -->
   <div class="card">
-    <div class="card-title">📊 ¿En qué etapa está cada tema?</div>
+    <div class="card-title">&#x1f4ca; &iquest;En qu&eacute; etapa est&aacute; cada tema?</div>
     
     <div class="funnel">
       <div class="funnel-row">
         <div class="funnel-dot blue"></div>
         <div class="funnel-label">Aprendiendo</div>
         <div class="funnel-track">
-          <div class="funnel-fill blue" style="width:34%;">44</div>
+          <div class="funnel-fill blue" style="width:10%;">14</div>
         </div>
-        <div class="funnel-pct">34%</div>
+        <div class="funnel-pct">10%</div>
       </div>
       <div class="funnel-row">
         <div class="funnel-dot yellow"></div>
         <div class="funnel-label">Practicando</div>
         <div class="funnel-track">
-          <div class="funnel-fill yellow" style="width:17%;">22</div>
+          <div class="funnel-fill yellow" style="width:69%;">99</div>
         </div>
-        <div class="funnel-pct">17%</div>
+        <div class="funnel-pct">69%</div>
       </div>
       <div class="funnel-row">
         <div class="funnel-dot green"></div>
         <div class="funnel-label">Dominado</div>
         <div class="funnel-track">
-          <div class="funnel-fill green" style="width:49%;">63</div>
+          <div class="funnel-fill green" style="width:21%;">30</div>
         </div>
-        <div class="funnel-pct">49%</div>
+        <div class="funnel-pct">21%</div>
       </div>
     </div>
     
     <div class="funnel-summary">
-      <strong>Casi la mitad de los temas ya están dominados</strong> (63 de 129). 
-      Christopher los responde bien y se acuerda sin necesidad de repasarlos seguido. 
-      El 34% está en etapa de aprendizaje — son temas nuevos que se fueron agregando durante julio.
+      <strong>30 de 143 tarjetas ya est&aacute;n dominadas</strong> (21%).
+      Christopher las responde bien y las recuerda sin esfuerzo.
+      
     </div>
   </div>
 
   <!-- SCORE DE EXAMEN GENERAL -->
   <div class="card">
-    <div class="card-title">🎯 ¿Qué tan preparado está para un examen?</div>
+    <div class="card-title">&#x1f3af; &iquest;Qu&eacute; tan preparado est&aacute; para un examen?</div>
     <div style="display:flex; gap:20px; align-items:center; flex-wrap:wrap;">
       <div class="exam-score">
-        <div class="score-circle med">66%</div>
-        <div class="score-label">Preparación general</div>
-        <div class="score-sub">lo sabría bien si lo evaluaran hoy</div>
+        <div class="score-circle med">56%</div>
+        <div class="score-label">Preparaci&oacute;n general</div>
+        <div class="score-sub">lo sabr&iacute;a bien si lo evaluaran hoy</div>
       </div>
       <div style="flex:1; min-width:140px; font-size:13px; color:#555b6d; line-height:1.5;">
-        Cada materia tiene su propio nivel. 
-        <strong>Ciencia</strong> está casi lista (91%), 
-        mientras que <strong>Aritmética</strong> 
-        está arrancando (32%) porque justo se agregaron temas nuevos.
+        Cada materia tiene su propio nivel.
         <div style="margin-top:8px;">
-          <span class="badge green">91%</span> Ciencia · 
-          <span class="badge yellow">60%</span> Ciudadanía · 
-          <span class="badge yellow">47%</span> Comunicación · 
-          <span class="badge green">100%</span> Inglés · 
-          <span class="badge" style="background:#FF6B35;">32%</span> Aritmética
+          <span class="badge yellow">75%</span> Ingles · <span class="badge yellow">59%</span> Ciencia y Tecnologia · <span class="badge yellow">56%</span> Ciudadania y Valores · <span class="badge yellow">50%</span> Aritmetica y Finanzas · <span class="badge ">48%</span> Comunicacion y Literatura
         </div>
       </div>
+    </div>
+  </div>
+
+  <!-- FLUIDEZ -->
+  <div class="card">
+    <div class="card-title">&#x26a1; Fluidez: &iquest;qu&eacute; tan r&aacute;pido responde?</div>
+    <div style="font-size:12px; color:#7c8394; margin-bottom:12px;">
+      Menos de 2s = autom&aacute;tico ([GREEN]) · 2-5s = c&oacute;modo ([YELLOW]) · m&aacute;s de 5s = con esfuerzo ([RED])
+    </div>
+    
+      <div class="fluency-row">
+        <div class="fl-label">Aritmetica y Finanzas</div>
+        <div class="fl-track">
+          <div class="fl-fill" style="width:100%;background:#FF6B35;"></div>
+        </div>
+        <div class="fl-time" style="color:#FF6B35;">21.4s</div>
+      </div>
+      <div class="fluency-row">
+        <div class="fl-label">Comunicacion y Literatura</div>
+        <div class="fl-track">
+          <div class="fl-fill" style="width:100%;background:#FF6B35;"></div>
+        </div>
+        <div class="fl-time" style="color:#FF6B35;">12.7s</div>
+      </div>
+      <div class="fluency-row">
+        <div class="fl-label">Ciudadania y Valores</div>
+        <div class="fl-track">
+          <div class="fl-fill" style="width:100%;background:#FF6B35;"></div>
+        </div>
+        <div class="fl-time" style="color:#FF6B35;">12.3s</div>
+      </div>
+      <div class="fluency-row">
+        <div class="fl-label">Ingles</div>
+        <div class="fl-track">
+          <div class="fl-fill" style="width:100%;background:#FF6B35;"></div>
+        </div>
+        <div class="fl-time" style="color:#FF6B35;">11.2s</div>
+      </div>
+      <div class="fluency-row">
+        <div class="fl-label">Ciencia y Tecnologia</div>
+        <div class="fl-track">
+          <div class="fl-fill" style="width:100%;background:#FF6B35;"></div>
+        </div>
+        <div class="fl-time" style="color:#FF6B35;">10.8s</div>
+      </div>
+    <div class="rhythm-row" style="margin-top:10px;">
+      <div class="rhythm-item"><div class="r-num" style="color:#00C875;">0%</div><div class="r-label">Respuestas r&aacute;pidas<br><span style="font-size:10px;color:#b0b5c0;">&lt; 2s</span></div></div>
+      <div class="rhythm-item"><div class="r-num" style="color:#FFB400;">13.7s</div><div class="r-label">Tiempo promedio<br><span style="font-size:10px;color:#b0b5c0;">general</span></div></div>
+      <div class="rhythm-item"><div class="r-num" style="color:#2962FF;">30</div><div class="r-label">Tarjetas dominadas<br><span style="font-size:10px;color:#b0b5c0;">intervalo &ge; 21d</span></div></div>
     </div>
   </div>
 
   <!-- DESGLOSE POR MATERIA -->
   <div class="card">
-    <div class="card-title">📚 Materias una por una</div>
+    <div class="card-title">&#x1f4da; Materias una por una</div>
     <div class="subjects-grid">
-
-      <!-- CIENCIA -->
+      
       <div class="subject-row">
         <div class="s-head">
-          <div class="s-name">🔬 Ciencia y Tecnología</div>
-          <div class="s-exam high">91%</div>
+          <div class="s-name">&#x1f52c; Ciencia y Tecnologia</div>
+          <div class="s-exam med">59%</div>
         </div>
         <div class="s-bar">
-          <div class="seg blue" style="width:9%;"></div>
-          <div class="seg yellow" style="width:30%;"></div>
-          <div class="seg green" style="width:61%;"></div>
+          <div class="seg blue" style="width:8%;"></div>
+          <div class="seg yellow" style="width:66%;"></div>
+          <div class="seg green" style="width:26%;"></div>
         </div>
         <div class="s-legend">
           <span><span class="dot" style="background:#2962FF;"></span>4 aprendiendo</span>
-          <span><span class="dot" style="background:#FFB400;"></span>14 practicando</span>
-          <span><span class="dot" style="background:#00C875;"></span>28 dominados</span>
-          <span style="color:#555b6d;"><strong>136</strong> prácticas</span>
+          <span><span class="dot" style="background:#FFB400;"></span>33 practicando</span>
+          <span><span class="dot" style="background:#00C875;"></span>13 dominados</span>
+          <span style="color:#555b6d;"><strong>179</strong> repasos</span>
+          <span><span style="color:#FF6B35;">🐢 Con esfuerzo (10.8s)</span></span>
         </div>
         <div class="highlight-box" style="margin-top:8px;">
-          🟢 <strong>La materia más avanzada.</strong> 42 de 46 temas ya están en práctica o dominados. Si mañana tuviera examen de Ciencia, le iría muy bien.
+          &#x1f7e1; <strong>Bien encaminada. Sigue practicando para llegar a dominarla.</strong>
         </div>
       </div>
-
-      <!-- CIUDADANÍA -->
       <div class="subject-row">
         <div class="s-head">
-          <div class="s-name">🤝 Ciudadanía y Valores</div>
-          <div class="s-exam med">60%</div>
+          <div class="s-name">&#x1f91d; Ciudadania y Valores</div>
+          <div class="s-exam med">56%</div>
         </div>
         <div class="s-bar">
-          <div class="seg blue" style="width:40%;"></div>
-          <div class="seg yellow" style="width:14%;"></div>
-          <div class="seg green" style="width:46%;"></div>
+          <div class="seg blue" style="width:12%;"></div>
+          <div class="seg yellow" style="width:62%;"></div>
+          <div class="seg green" style="width:26%;"></div>
         </div>
         <div class="s-legend">
-          <span><span class="dot" style="background:#2962FF;"></span>14 aprendiendo</span>
-          <span><span class="dot" style="background:#FFB400;"></span>5 practicando</span>
-          <span><span class="dot" style="background:#00C875;"></span>16 dominados</span>
-          <span style="color:#555b6d;"><strong>64</strong> prácticas</span>
+          <span><span class="dot" style="background:#2962FF;"></span>5 aprendiendo</span>
+          <span><span class="dot" style="background:#FFB400;"></span>25 practicando</span>
+          <span><span class="dot" style="background:#00C875;"></span>10 dominados</span>
+          <span style="color:#555b6d;"><strong>130</strong> repasos</span>
+          <span><span style="color:#FF6B35;">🐢 Con esfuerzo (12.3s)</span></span>
         </div>
         <div class="highlight-box" style="margin-top:8px;">
-          🟡 <strong>Bien encaminada.</strong> Casi la mitad dominada. Los 14 temas nuevos se están afianzando.
+          &#x1f7e1; <strong>Bien encaminada. Sigue practicando para llegar a dominarla.</strong>
         </div>
       </div>
-
-      <!-- ARITMÉTICA -->
       <div class="subject-row">
         <div class="s-head">
-          <div class="s-name">💰 Aritmética y Finanzas</div>
-          <div class="s-exam low">32%</div>
+          <div class="s-name">&#x1f4b0; Aritmetica y Finanzas</div>
+          <div class="s-exam med">50%</div>
         </div>
         <div class="s-bar">
-          <div class="seg blue" style="width:68%;"></div>
-          <div class="seg yellow" style="width:4%;"></div>
-          <div class="seg green" style="width:28%;"></div>
+          <div class="seg blue" style="width:7%;"></div>
+          <div class="seg yellow" style="width:85%;"></div>
+          <div class="seg green" style="width:8%;"></div>
         </div>
         <div class="s-legend">
-          <span><span class="dot" style="background:#2962FF;"></span>17 aprendiendo</span>
-          <span><span class="dot" style="background:#FFB400;"></span>1 practicando</span>
-          <span><span class="dot" style="background:#00C875;"></span>7 dominados</span>
-          <span style="color:#555b6d;"><strong>29</strong> prácticas</span>
-        </div>
-        <div class="highlight-box orange" style="margin-top:8px;">
-          🟠 <strong>Recién arrancando.</strong> La mayoría son temas nuevos agregados hace pocos días. Con las próximas semanas de práctica va a subir rápido.
-        </div>
-      </div>
-
-      <!-- COMUNICACIÓN -->
-      <div class="subject-row">
-        <div class="s-head">
-          <div class="s-name">📖 Comunicación y Literatura</div>
-          <div class="s-exam med">47%</div>
-        </div>
-        <div class="s-bar">
-          <div class="seg blue" style="width:53%;"></div>
-          <div class="seg yellow" style="width:6%;"></div>
-          <div class="seg green" style="width:41%;"></div>
-        </div>
-        <div class="s-legend">
-          <span><span class="dot" style="background:#2962FF;"></span>9 aprendiendo</span>
-          <span><span class="dot" style="background:#FFB400;"></span>1 practicando</span>
-          <span><span class="dot" style="background:#00C875;"></span>7 dominados</span>
-          <span style="color:#555b6d;"><strong>24</strong> prácticas</span>
+          <span><span class="dot" style="background:#2962FF;"></span>2 aprendiendo</span>
+          <span><span class="dot" style="background:#FFB400;"></span>23 practicando</span>
+          <span><span class="dot" style="background:#00C875;"></span>2 dominados</span>
+          <span style="color:#555b6d;"><strong>85</strong> repasos</span>
+          <span><span style="color:#FF6B35;">🐢 Con esfuerzo (21.4s)</span></span>
         </div>
         <div class="highlight-box" style="margin-top:8px;">
-          🟡 <strong>Mitad y mitad.</strong> 7 temas ya están dominados. Los 9 nuevos se están incorporando.
+          &#x1f7e1; <strong>Bien encaminada. Sigue practicando para llegar a dominarla.</strong>
         </div>
       </div>
-
-      <!-- INGLÉS -->
       <div class="subject-row">
         <div class="s-head">
-          <div class="s-name">🇬🇧 Inglés</div>
-          <div class="s-exam high">100%</div>
+          <div class="s-name">&#x1f4da; Comunicacion y Literatura</div>
+          <div class="s-exam low">48%</div>
+        </div>
+        <div class="s-bar">
+          <div class="seg blue" style="width:15%;"></div>
+          <div class="seg yellow" style="width:75%;"></div>
+          <div class="seg green" style="width:10%;"></div>
+        </div>
+        <div class="s-legend">
+          <span><span class="dot" style="background:#2962FF;"></span>3 aprendiendo</span>
+          <span><span class="dot" style="background:#FFB400;"></span>15 practicando</span>
+          <span><span class="dot" style="background:#00C875;"></span>2 dominados</span>
+          <span style="color:#555b6d;"><strong>70</strong> repasos</span>
+          <span><span style="color:#FF6B35;">🐢 Con esfuerzo (12.7s)</span></span>
+        </div>
+        <div class="highlight-box" style="margin-top:8px;">
+          &#x1f534; <strong>Recién arrancando o necesita más repaso. Va a subir con constancia.</strong>
+        </div>
+      </div>
+      <div class="subject-row">
+        <div class="s-head">
+          <div class="s-name">&#x1f1ec-1f1e7; Ingles</div>
+          <div class="s-exam med">75%</div>
         </div>
         <div class="s-bar">
           <div class="seg blue" style="width:0%;"></div>
-          <div class="seg yellow" style="width:17%;"></div>
-          <div class="seg green" style="width:83%;"></div>
+          <div class="seg yellow" style="width:50%;"></div>
+          <div class="seg green" style="width:50%;"></div>
         </div>
         <div class="s-legend">
           <span><span class="dot" style="background:#2962FF;"></span>0 aprendiendo</span>
-          <span><span class="dot" style="background:#FFB400;"></span>1 practicando</span>
-          <span><span class="dot" style="background:#00C875;"></span>5 dominados</span>
-          <span style="color:#555b6d;"><strong>18</strong> prácticas</span>
+          <span><span class="dot" style="background:#FFB400;"></span>3 practicando</span>
+          <span><span class="dot" style="background:#00C875;"></span>3 dominados</span>
+          <span style="color:#555b6d;"><strong>22</strong> repasos</span>
+          <span><span style="color:#FF6B35;">🐢 Con esfuerzo (11.2s)</span></span>
         </div>
-        <div class="highlight-box green" style="margin-top:8px;">
-          🟢 <strong>Completa.</strong> Todos los temas de inglés están dominados o en práctica. Christopher lo tiene clarísimo.
+        <div class="highlight-box" style="margin-top:8px;">
+          &#x1f7e1; <strong>Bien encaminada. Sigue practicando para llegar a dominarla.</strong>
         </div>
       </div>
-
-    </div>
-  </div>
-
-  <!-- CONSISTENCIA ESTIMADA -->
-  <div class="card">
-    <div class="card-title">📊 Consistencia de estudio (estimada)</div>
-    
-    <div style="margin-bottom:16px; font-size:13px; color:#555b6d; line-height:1.5;">
-      Christopher estudia en su celular, pero Anki <strong>no sincroniza el historial diario</strong> entre dispositivos.
-      Lo que sí tenemos es el estado actual de las cartas: 85 en repaso con intervalos de 7 a 23 días,
-      lo que permite estimar la constancia.
-    </div>
-
-    <div style="padding:16px; background:#f8faff; border-radius:12px; border:1px solid #e0e8ff;">
-      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
-        <div style="font-size:15px; font-weight:700;">📆 Frecuencia estimada</div>
-        <div style="font-size:26px; font-weight:800; color:#2962FF;">~65%</div>
-      </div>
-      
-      <!-- Barra de progreso -->
-      <div style="height:20px; background:#eef0f4; border-radius:10px; overflow:hidden; position:relative;">
-        <div style="height:100%; width:65%; background:linear-gradient(90deg, #FFB400, #00C875); border-radius:10px;"></div>
-      </div>
-      <div style="display:flex; justify-content:space-between; font-size:11px; color:#7c8394; margin-top:4px;">
-        <span>0%</span>
-        <span>⬤ Estimado &nbsp;|&nbsp; ⬤ Confirmado (compu)</span>
-        <span>100%</span>
-      </div>
-      
-      <!-- Barra chica de lo confirmado -->
-      <div style="margin-top:8px; display:flex; align-items:center; gap:8px;">
-        <div style="flex:1; height:6px; background:#eef0f4; border-radius:3px; overflow:hidden;">
-          <div style="height:100%; width:14%; background:#d45a5a; border-radius:3px;"></div>
-        </div>
-        <span style="font-size:11px; color:#d45a5a; font-weight:600;">14%</span>
-      </div>
-      <div style="font-size:11px; color:#7c8394; margin-top:2px; text-align:right;">
-        Dato exacto disponible (esta computadora)
-      </div>
-    </div>
-
-    <div class="rhythm-row" style="margin-top:14px;">
-      <div class="rhythm-item">
-        <div class="r-num" style="color:#2962FF;">23</div>
-        <div class="r-label">Días de actividad<br><span style="font-size:10px; color:#b0b5c0;">(por intervalo de cartas)</span></div>
-      </div>
-      <div class="rhythm-item">
-        <div class="r-num" style="color:#00C875;">85</div>
-        <div class="r-label">Cartas dominadas<br><span style="font-size:10px; color:#b0b5c0;">en fase de repaso</span></div>
-      </div>
-      <div class="rhythm-item">
-        <div class="r-num" style="color:#9C27B0;">299</div>
-        <div class="r-label">Repasos acumulados<br><span style="font-size:10px; color:#b0b5c0;">entre todos los temas</span></div>
-      </div>
-    </div>
-    
-    <div style="margin-top:12px; font-size:11px; color:#b0b5c0; line-height:1.5;">
-      💡 La estimación se basa en la distribución de intervalos (7 a 23 días) y la cantidad de repasos (299) 
-      de las 85 cartas en repaso. Para el dato exacto de días, 
-      <strong>abrir Anki en el celular de Christopher → botón Estadísticas</strong>.
     </div>
   </div>
 
   <!-- NOVEDADES -->
   <div class="card">
-    <div class="card-title">📦 Novedades de julio</div>
+    <div class="card-title">&#x1f4e6; Novedades</div>
     <div style="display:flex; gap:10px; flex-wrap:wrap;">
       <div style="flex:1; min-width:140px; background:#f7f8fa; border-radius:12px; padding:14px;">
-        <div style="font-size:24px; font-weight:700; color:#2962FF;">+44</div>
-        <div style="font-size:13px; color:#555b6d;">temas nuevos agregados este mes</div>
+        <div style="font-size:24px; font-weight:700; color:#2962FF;">+143</div>
+        <div style="font-size:13px; color:#555b6d;">tarjetas activas en Anki</div>
       </div>
       <div style="flex:1; min-width:140px; background:#f7f8fa; border-radius:12px; padding:14px;">
-        <div style="font-size:24px; font-weight:700; color:#00C875;">100%</div>
-        <div style="font-size:13px; color:#555b6d;">de aciertos en los temas que ya domina</div>
+        <div style="font-size:24px; font-weight:700; color:#00C875;">486</div>
+        <div style="font-size:13px; color:#555b6d;">repasos acumulados</div>
       </div>
       <div style="flex:1; min-width:140px; background:#f7f8fa; border-radius:12px; padding:14px;">
-        <div style="font-size:24px; font-weight:700; color:#9C27B0;">21 días</div>
-        <div style="font-size:13px; color:#555b6d;">es el récord sin repasar un tema</div>
+        <div style="font-size:24px; font-weight:700; color:#9C27B0;">21396ms</div>
+        <div style="font-size:13px; color:#555b6d;">tiempo m&aacute;s lento</div>
       </div>
     </div>
   </div>
 
   <!-- FOOTER -->
   <div class="footer">
-    <div class="msg">Seguro así, <span>Campeón</span></div>
-    <div class="update">Actualizado el 8 de julio de 2026</div>
+    <div class="msg">Seguro as&iacute;, <span>Campe&oacute;n</span></div>
+    <div class="update">Actualizado el 2026-07-16 06:59</div>
   </div>
 
 </div>
